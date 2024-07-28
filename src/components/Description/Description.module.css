@@ -1,0 +1,10 @@
+.descBlock{
+   margin-bottom: 50px;
+}
+.descTitle{
+   font-size: 45px;
+   font-weight: 600;
+   text-transform: capitalize;
+
+   margin-bottom: 40px;
+}

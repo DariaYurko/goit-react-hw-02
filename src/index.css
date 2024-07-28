@@ -4,7 +4,7 @@
 *::after {
   padding: 0;
   margin: 0;
-  border: 0;
+  /* border: 0; */
   box-sizing: border-box;
 }
 
@@ -43,8 +43,11 @@ button {
   font-weight: inherit;
   font-size: inherit;
   color: inherit;
+  transition: opacity 250ms ease-in;
 }
-
+button:hover {
+  opacity: 0.8;
+}
 img {
   display: block;
   max-width: 100%;
