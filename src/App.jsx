@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 import './App.css';
 
@@ -8,24 +8,17 @@ import Feedback from './components/Feedback/Feedback';
 import Notification from './components/Notification/Notification';
 
 function App() {
-  // const [feedbacks, setFeedbacks] = useState({
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0,
-  // });
   const [feedbacks, setFeedbacks] = useState(() => {
-
     const savedFeedbacks = window.localStorage.getItem('feedbacks');
-    // console.log(savedFeedbacks);
 
     if (savedFeedbacks !== null) {
       return JSON.parse(savedFeedbacks);
     }
-      return {
-        good: 0,
-        neutral: 0,
-        bad: 0,
-      };
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
   });
 
   useEffect(() => {
@@ -35,8 +28,6 @@ function App() {
   const keys = Object.keys(feedbacks);
   const totalFeedback = keys.reduce((total, key) => feedbacks[key] + total, 0);
   const positiveFeedback = Math.round((feedbacks.good / totalFeedback) * 100);
-
-
 
   function updateFeedback(feedbackType) {
     setFeedbacks({
@@ -52,8 +43,6 @@ function App() {
       bad: 0,
     });
   }
-
-  useEffect(()=>{}, [])
 
   return (
     <div className="container">
