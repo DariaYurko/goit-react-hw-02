@@ -48,32 +48,22 @@ function App() {
     <div className="container">
       <Description />
 
-      <div className="buttons">
-        <Options nameFeedback={'good'} updateFeedback={updateFeedback} />
-        <Options nameFeedback={'neutral'} updateFeedback={updateFeedback} />
-        <Options nameFeedback={'bad'} updateFeedback={updateFeedback} />
-      </div>
+      <Options
+        updateFeedback={updateFeedback}
+        resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
+      />
 
-      {totalFeedback === 0 && <Notification message={'No feedback yet'} />}
-
-      {totalFeedback > 0 && (
-        <div className="blockFeedback">
-          <Feedback
-            feedbackGood={feedbacks.good}
-            feedbackNeutral={feedbacks.neutral}
-            feedbackBad={feedbacks.bad}
-            totalFeedback={totalFeedback}
-            positiveFeedback={positiveFeedback}
-          />
-
-          <button
-            className="optionButton"
-            type="button"
-            onClick={resetFeedback}
-          >
-            Reset
-          </button>
-        </div>
+      {totalFeedback === 0 ? (
+        <Notification message={'No feedback yet'} />
+      ) : (
+        <Feedback
+          feedbackGood={feedbacks.good}
+          feedbackNeutral={feedbacks.neutral}
+          feedbackBad={feedbacks.bad}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
       )}
     </div>
   );

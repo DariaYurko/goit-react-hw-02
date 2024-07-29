@@ -1,15 +1,43 @@
+import css from './Options.module.css';
 
-import css from './Options.module.css'
-function Options({ nameFeedback, updateFeedback }) {
+function Options({ updateFeedback, resetFeedback, totalFeedback }) {
   return (
-    <button
-      onClick={() => updateFeedback(nameFeedback)}
-      className={css.optionButton}
-      type="button"
-    >
-      {nameFeedback}
-    </button>
+    <div className="buttons">
+      <button
+        onClick={() => updateFeedback('good')}
+        type="button"
+        className={css.optionButton}
+      >
+        Good
+      </button>
+
+      <button
+        onClick={() => updateFeedback('neutral')}
+        type="button"
+        className={css.optionButton}
+      >
+        Neutral
+      </button>
+
+      <button
+        onClick={() => updateFeedback('bad')}
+        type="button"
+        className={css.optionButton}
+      >
+        Bad
+      </button>
+
+      {totalFeedback > 0 && (
+        <button
+          onClick={resetFeedback}
+          type="button"
+          className={css.optionButton}
+        >
+          Reset
+        </button>
+      )}
+    </div>
   );
 }
 
-export default Options
+export default Options;
